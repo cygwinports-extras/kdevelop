@@ -7,8 +7,10 @@ Runtime requirements:
   cygwin-1.5.24-2
   cervisia-3.5.6-1
   kdelibs4-3.5.6-1
+  libapr0-0.9.7-1
   libdb4.3-4.3.28-1
   qt3-3.3.7-1
+  subversion-1.4.3-1
 
 Build requirements:
 (besides corresponding -devel packages)
@@ -28,20 +30,20 @@ Canonical website:
   http://www.kdevelop.org/
 
 Canonical download:
-  ftp://ftp.kde.org/pub/kde/stable/kdevelop-3.4.0/src/
+  ftp://ftp.kde.org/pub/kde/stable/3.5.7/src/
 
 -------------------------------------------
 
 Build instructions:
-  unpack kdevelop-3.4.0-X-src.tar.bz2
+  unpack kdevelop-3.4.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./kdevelop-3.4.0-X.cygport all
+  cygport ./kdevelop-3.4.1-X.cygport all
 
 This will create:
-  /usr/src/kdevelop-3.4.0-X-src.tar.bz2
-  /usr/src/kdevelop-3.4.0-X.tar.bz2
+  /usr/src/kdevelop-3.4.1-X-src.tar.bz2
+  /usr/src/kdevelop-3.4.1-X.tar.bz2
 
 -------------------------------------------
 
@@ -290,10 +292,14 @@ Files included in the binary package:
   /usr/lib/kde3/cygkdevvcsmanager.dll
   /usr/lib/kde3/cygperforceintegrator.dll
   /usr/lib/kde3/cygsubversionintegrator.dll
+  /usr/lib/kde3/kded_kdevsvnd.dll
+  /usr/lib/kde3/kded_kdevsvnd.la
   /usr/lib/kde3/kio_chm.dll
   /usr/lib/kde3/kio_chm.la
   /usr/lib/kde3/kio_csharpdoc.dll
   /usr/lib/kde3/kio_csharpdoc.la
+  /usr/lib/kde3/kio_kdevsvn.dll
+  /usr/lib/kde3/kio_kdevsvn.la
   /usr/lib/kde3/kio_perldoc.dll
   /usr/lib/kde3/kio_perldoc.la
   /usr/lib/kde3/kio_pydoc.dll
@@ -1258,6 +1264,7 @@ Files included in the binary package:
   /usr/share/apps/kdevrubysupport/pics/ruby_run.png
   /usr/share/apps/kdevscripting/kdevscripting.rc
   /usr/share/apps/kdevscriptproject/kdevscriptproject.rc
+  /usr/share/apps/kdevsnippet/kdevpart_snippet.rc
   /usr/share/apps/kdevsqlsupport/kdevsqlsupport.rc
   /usr/share/apps/kdevtipofday/kdevpart_tipofday.rc
   /usr/share/apps/kdevtipofday/tips
@@ -1268,7 +1275,7 @@ Files included in the binary package:
   /usr/share/config/kdevassistantrc
   /usr/share/config/kdeveloprc
   /usr/share/desktop-directories/kde-development-kdevelop.directory
-  /usr/share/doc/Cygwin/kdevelop-3.4.0.README
+  /usr/share/doc/Cygwin/kdevelop-3.4.1.README
   /usr/share/doc/HTML/en/kde_app_devel/appwizard.png
   /usr/share/doc/HTML/en/kde_app_devel/common
   /usr/share/doc/HTML/en/kde_app_devel/index.cache.bz2
@@ -1408,14 +1415,14 @@ Files included in the binary package:
   /usr/share/doc/HTML/en/kdevelop/tutorial-new-project.png
   /usr/share/doc/HTML/en/kdevelop/unixdev.docbook
   /usr/share/doc/HTML/en/kdevelop/wrong-project-location.png
-  /usr/share/doc/kdevelop-3.4.0/AUTHORS
-  /usr/share/doc/kdevelop-3.4.0/COPYING
-  /usr/share/doc/kdevelop-3.4.0/COPYING.LIB
-  /usr/share/doc/kdevelop-3.4.0/ChangeLog
-  /usr/share/doc/kdevelop-3.4.0/HACKING
-  /usr/share/doc/kdevelop-3.4.0/INSTALL
-  /usr/share/doc/kdevelop-3.4.0/README
-  /usr/share/doc/kdevelop-3.4.0/TODO
+  /usr/share/doc/kdevelop-3.4.1/AUTHORS
+  /usr/share/doc/kdevelop-3.4.1/COPYING
+  /usr/share/doc/kdevelop-3.4.1/COPYING.LIB
+  /usr/share/doc/kdevelop-3.4.1/ChangeLog
+  /usr/share/doc/kdevelop-3.4.1/HACKING
+  /usr/share/doc/kdevelop-3.4.1/INSTALL
+  /usr/share/doc/kdevelop-3.4.1/README
+  /usr/share/doc/kdevelop-3.4.1/TODO
   /usr/share/icons/hicolor/16x16/actions/breakpoint_add.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete_all.png
@@ -1445,6 +1452,7 @@ Files included in the binary package:
   /usr/share/services/dockdevtocplugin.desktop
   /usr/share/services/docqtplugin.desktop
   /usr/share/services/kchmpart.desktop
+  /usr/share/services/kded/kdevsvnd.desktop
   /usr/share/services/kdevabbrev.desktop
   /usr/share/services/kdevadaproject.desktop
   /usr/share/services/kdevadasupport.desktop
@@ -1516,6 +1524,11 @@ Files included in the binary package:
   /usr/share/services/kdevsqlsupport.desktop
   /usr/share/services/kdevsubversion.desktop
   /usr/share/services/kdevsubversionintegrator.desktop
+  /usr/share/services/kdevsvn+file.protocol
+  /usr/share/services/kdevsvn+http.protocol
+  /usr/share/services/kdevsvn+https.protocol
+  /usr/share/services/kdevsvn+ssh.protocol
+  /usr/share/services/kdevsvn+svn.protocol
   /usr/share/services/kdevtexttools.desktop
   /usr/share/services/kdevtipofday.desktop
   /usr/share/services/kdevtmakeproject.desktop
@@ -1544,6 +1557,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 3.4.1-1 -----
+Version bump.
 
 ----- version 3.4.0-1 -----
 Initial release for Cygwin.
