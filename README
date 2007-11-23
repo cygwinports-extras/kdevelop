@@ -5,12 +5,12 @@ variety of programming tasks.
 
 Runtime requirements:
   cygwin-1.5.24-2
-  cervisia-3.5.6-1
-  kdelibs4-3.5.6-1
-  libapr0-0.9.7-1
-  libdb4.3-4.3.28-1
-  qt3-3.3.7-1
-  subversion-1.4.3-1
+  cervisia-3.5.8-1
+  kdelibs4-3.5.8-1
+  libapr1-1.2.11-1
+  libdb4.5-4.5.20.2-1
+  qt3-3.3.8-4
+  subversion-1.4.5-1
 
 Build requirements:
 (besides corresponding -devel packages)
@@ -18,32 +18,33 @@ Build requirements:
   autoconf2.5-2.61-1
   automake1.9-1.9.6-2
   binutils-20060817-1
-  cygport-0.2.9-1
+  cygport-0.3.7-1
   gawk-3.1.5-4
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
   libtool1.5-1.5.23a-2
   make-3.81-1
+  perl-5.8.8-4
   sed-4.1.5-2
 
 Canonical website:
   http://www.kdevelop.org/
 
 Canonical download:
-  ftp://ftp.kde.org/pub/kde/stable/3.5.7/src/
+  ftp://ftp.kde.org/pub/kde/stable/3.5.8/src/
 
 -------------------------------------------
 
 Build instructions:
-  unpack kdevelop-3.4.1-X-src.tar.bz2
+  unpack kdevelop-3.5.0-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./kdevelop-3.4.1-X.cygport all
+  cygport ./kdevelop-3.5.0-X.cygport all
 
 This will create:
-  /usr/src/kdevelop-3.4.1-X-src.tar.bz2
-  /usr/src/kdevelop-3.4.1-X.tar.bz2
+  /usr/src/kdevelop-3.5.0-X-src.tar.bz2
+  /usr/src/kdevelop-3.5.0-X.tar.bz2
 
 -------------------------------------------
 
@@ -1275,7 +1276,7 @@ Files included in the binary package:
   /usr/share/config/kdevassistantrc
   /usr/share/config/kdeveloprc
   /usr/share/desktop-directories/kde-development-kdevelop.directory
-  /usr/share/doc/Cygwin/kdevelop-3.4.1.README
+  /usr/share/doc/Cygwin/kdevelop-3.5.0.README
   /usr/share/doc/HTML/en/kde_app_devel/appwizard.png
   /usr/share/doc/HTML/en/kde_app_devel/common
   /usr/share/doc/HTML/en/kde_app_devel/index.cache.bz2
@@ -1415,14 +1416,14 @@ Files included in the binary package:
   /usr/share/doc/HTML/en/kdevelop/tutorial-new-project.png
   /usr/share/doc/HTML/en/kdevelop/unixdev.docbook
   /usr/share/doc/HTML/en/kdevelop/wrong-project-location.png
-  /usr/share/doc/kdevelop-3.4.1/AUTHORS
-  /usr/share/doc/kdevelop-3.4.1/COPYING
-  /usr/share/doc/kdevelop-3.4.1/COPYING.LIB
-  /usr/share/doc/kdevelop-3.4.1/ChangeLog
-  /usr/share/doc/kdevelop-3.4.1/HACKING
-  /usr/share/doc/kdevelop-3.4.1/INSTALL
-  /usr/share/doc/kdevelop-3.4.1/README
-  /usr/share/doc/kdevelop-3.4.1/TODO
+  /usr/share/doc/kdevelop-3.5.0/AUTHORS
+  /usr/share/doc/kdevelop-3.5.0/COPYING
+  /usr/share/doc/kdevelop-3.5.0/COPYING.LIB
+  /usr/share/doc/kdevelop-3.5.0/ChangeLog
+  /usr/share/doc/kdevelop-3.5.0/HACKING
+  /usr/share/doc/kdevelop-3.5.0/INSTALL
+  /usr/share/doc/kdevelop-3.5.0/README
+  /usr/share/doc/kdevelop-3.5.0/TODO
   /usr/share/icons/hicolor/16x16/actions/breakpoint_add.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete_all.png
@@ -1558,8 +1559,11 @@ Files included in the binary package:
 
 Port Notes:
 
+----- version 3.5.0-1 -----
+Version bump for KDE 3.5.8.
+
 ----- version 3.4.1-1 -----
-Version bump.
+Version bump for KDE 3.5.7.
 
 ----- version 3.4.0-1 -----
 Initial release for Cygwin.
