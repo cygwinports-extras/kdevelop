@@ -1,0 +1,324 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/admin/acinclude.m4.in src/kdevelop-3.5.2/admin/acinclude.m4.in
+--- origsrc/kdevelop-3.5.2/admin/acinclude.m4.in	2008-01-14 11:08:18.000000000 -0600
++++ src/kdevelop-3.5.2/admin/acinclude.m4.in	2008-05-19 21:33:14.468750000 -0500
+@@ -4584,11 +4584,11 @@
+ python_libdirs="$ac_python_dir/lib$kdelibsuff /usr/lib$kdelibsuff /usr/local /usr/lib$kdelibsuff $kde_extra_libs"
+ AC_FIND_FILE(libpython$version.so, $python_libdirs, python_libdir)
+ if test ! -r $python_libdir/libpython$version.so; then
+-  AC_FIND_FILE(libpython$version.a, $python_libdirs, python_libdir)
+-  if test ! -r $python_libdir/libpython$version.a; then
+-    AC_FIND_FILE(python$version/config/libpython$version.a, $python_libdirs, python_libdir)
++  AC_FIND_FILE(libpython$version.dll.a, $python_libdirs, python_libdir)
++  if test ! -r $python_libdir/libpython$version.dll.a; then
++    AC_FIND_FILE(python$version/config/libpython$version.dll.a, $python_libdirs, python_libdir)
+     python_libdir=$python_libdir/python$version/config
+-    if test ! -r $python_libdir/libpython$version.a; then
++    if test ! -r $python_libdir/libpython$version.dll.a; then
+       python_libdir=no
+     fi
+   fi
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/buildtools/lib/base/Makefile.am src/kdevelop-3.5.2/buildtools/lib/base/Makefile.am
+--- origsrc/kdevelop-3.5.2/buildtools/lib/base/Makefile.am	2007-04-09 18:43:50.000000000 -0500
++++ src/kdevelop-3.5.2/buildtools/lib/base/Makefile.am	2008-05-19 21:33:14.468750000 -0500
+@@ -3,7 +3,8 @@
+ 	$(all_includes)
+ METASOURCES = AUTO
+ lib_LTLIBRARIES = libkdevbuildbase.la
+-libkdevbuildbase_la_LDFLAGS = $(all_libraries)
++libkdevbuildbase_la_LDFLAGS = $(all_libraries) -no-undefined
++libkdevbuildbase_la_LIBADD = $(top_builddir)/lib/libkdevelop.la
+ libkdevbuildbase_la_SOURCES = kdevbuildtool.cpp
+ kdevelopbuildtoolsincludedir = $(includedir)/kdevelop/buildtools/base
+ kdevelopbuildtoolsinclude_HEADERS = kdevbuildtool.h
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/buildtools/lib/widgets/Makefile.am src/kdevelop-3.5.2/buildtools/lib/widgets/Makefile.am
+--- origsrc/kdevelop-3.5.2/buildtools/lib/widgets/Makefile.am	2007-04-09 18:43:50.000000000 -0500
++++ src/kdevelop-3.5.2/buildtools/lib/widgets/Makefile.am	2008-05-19 21:33:14.484375000 -0500
+@@ -13,6 +13,9 @@
+ 	removesubprojectdialog.cpp removesubprojectdlgbase.ui runoptionswidget.cpp runoptionswidgetbase.ui \
+ 	subclassesdlg.cpp subclassesdlgbase.ui
+ 
++libkdevbuildtoolswidgets_la_LDFLAGS = $(all_libraries) -no-undefined
++libkdevbuildtoolswidgets_la_LIBADD = $(top_builddir)/lib/libkdevelop.la
++
+ METASOURCES = AUTO
+ 
+ kdevelopbuildtoolsincludedir = $(includedir)/kdevelop/buildtools/widgets
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/kdevdesigner/designer/Makefile.am src/kdevelop-3.5.2/kdevdesigner/designer/Makefile.am
+--- origsrc/kdevelop-3.5.2/kdevdesigner/designer/Makefile.am	2007-04-09 18:44:12.000000000 -0500
++++ src/kdevelop-3.5.2/kdevdesigner/designer/Makefile.am	2008-05-19 21:33:14.500000000 -0500
+@@ -6,10 +6,10 @@
+ 	-I$(top_srcdir)/lib/interfaces/external $(all_includes)
+ METASOURCES = AUTO
+ kde_module_LTLIBRARIES =  libkdevdesignerpart.la
+-libkdevdesignerpart_la_LDFLAGS = $(KDE_PLUGIN) $(all_libraries)
++libkdevdesignerpart_la_LDFLAGS = $(KDE_PLUGIN) $(all_libraries) -Wl,-lqassistantclient,-lqt-mt
+ libkdevdesignerpart_la_LIBADD = \
+ 	$(top_builddir)/kdevdesigner/uilib/libkdevqui.la $(top_builddir)/kdevdesigner/shared/libshared.la \
+-	$(top_builddir)/lib/interfaces/external/libkinterfacedesigner.la -lqassistantclient $(LIB_KFILE) $(LIB_KPARTS)
++	$(top_builddir)/lib/interfaces/external/libkinterfacedesigner.la $(LIB_KFILE) $(LIB_KPARTS)
+ libkdevdesignerpart_la_SOURCES = kdevdesigner_part.cpp actiondnd.cpp actioneditorimpl.cpp actionlistview.cpp asciivalidator.cpp command.cpp connectionitems.cpp connectiontable.cpp customwidgeteditorimpl.cpp database.cpp dbconnectionimpl.cpp dbconnectionsimpl.cpp defs.cpp designerapp.cpp designerappiface.cpp editfunctionsimpl.cpp filechooser.cpp formfile.cpp formsettingsimpl.cpp formwindow.cpp hierarchyview.cpp iconvieweditorimpl.cpp layout.cpp listboxdnd.cpp listboxeditorimpl.cpp listboxrename.cpp listdnd.cpp listviewdnd.cpp listvieweditorimpl.cpp mainwindow.cpp mainwindowactions.cpp menubareditor.cpp metadatabase.cpp multilineeditorimpl.cpp newformimpl.cpp orderindicator.cpp outputwindow.cpp paletteeditoradvancedimpl.cpp paletteeditorimpl.cpp pixmapchooser.cpp pixmapcollection.cpp popupmenueditor.cpp previewframe.cpp previewwidgetimpl.cpp project.cpp projectsettingsimpl.cpp propertyeditor.cpp propertyobject.cpp qcompletionedit.cpp resource.cpp sizehandle.cpp sourceeditor.cpp sourcefile.cpp startdialogimpl.cpp styledbutton.cpp syntaxhighlighter_html.cpp tableeditorimpl.cpp timestamp.cpp variabledialogimpl.cpp widgetaction.cpp widgetfactory.cpp wizardeditorimpl.cpp workspace.cpp about.ui dbconnection.ui gotolinedialog.ui newform.ui previewwidget.ui variabledialog.ui actioneditor.ui dbconnectioneditor.ui iconvieweditor.ui paletteeditor.ui projectsettings.ui wizardeditor.ui configtoolboxdialog.ui dbconnections.ui listboxeditor.ui paletteeditoradvanced.ui replacedialog.ui connectiondialog.ui editfunctions.ui listeditor.ui pixmapcollectioneditor.ui richtextfontdialog.ui createtemplate.ui finddialog.ui listvieweditor.ui pixmapfunction.ui startdialog.ui customwidgeteditor.ui formsettings.ui multilineeditor.ui preferences.ui tableeditor.ui designeraction.cpp myiconloader.cpp
+ partrcdir = $(kde_datadir)/kdevdesignerpart
+ partdesktopdir = $(kde_servicesdir)
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/ada/Makefile.am src/kdevelop-3.5.2/languages/ada/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/ada/Makefile.am	2007-04-09 18:44:27.000000000 -0500
++++ src/kdevelop-3.5.2/languages/ada/Makefile.am	2008-05-19 21:33:14.515625000 -0500
+@@ -8,7 +8,7 @@
+ 
+ 
+ kde_module_LTLIBRARIES = libkdevadasupport.la
+-libkdevadasupport_la_LDFLAGS = $(LEXLIB) $(all_libraries) $(KDE_PLUGIN)
++libkdevadasupport_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
+ libkdevadasupport_la_LIBADD = $(top_builddir)/lib/libkdevelop.la 				$(top_builddir)/lib/antlr/src/libantlr.la
+ 
+ libkdevadasupport_la_SOURCES = adasupportpart.cpp problemreporter.cpp backgroundparser.cpp addclassdlg.ui addclass.cpp configproblemreporter.ui ada_utils.cpp adasupport.cpp AdaLexer.cpp AdaParser.cpp AdaTreeParserSuper.cpp AdaStoreWalker.cpp
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/cpp/debugger/mi/Makefile.am src/kdevelop-3.5.2/languages/cpp/debugger/mi/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/cpp/debugger/mi/Makefile.am	2007-04-09 18:44:18.000000000 -0500
++++ src/kdevelop-3.5.2/languages/cpp/debugger/mi/Makefile.am	2008-05-19 21:33:14.843750000 -0500
+@@ -6,6 +6,7 @@
+ INCLUDES = $(all_includes)
+ 
+ lib_LTLIBRARIES = libgdbmi_parser.la
+-libgdbmi_parser_la_LDFLAGS = $(all_libraries)
++libgdbmi_parser_la_LDFLAGS = $(all_libraries) -no-undefined
++libgdbmi_parser_la_LIBADD = $(LIB_KIO)
+ libgdbmi_parser_la_SOURCES = gdbmi.cpp miparser.cpp milexer.cpp
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/kjssupport/Makefile.am src/kdevelop-3.5.2/languages/kjssupport/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/kjssupport/Makefile.am	2007-04-09 18:44:26.000000000 -0500
++++ src/kdevelop-3.5.2/languages/kjssupport/Makefile.am	2008-05-19 21:33:14.859375000 -0500
+@@ -2,7 +2,7 @@
+ 
+ kde_module_LTLIBRARIES = libkdevkjssupport.la
+ libkdevkjssupport_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
+-libkdevkjssupport_la_LIBADD = -lkjsembed -lkdevelop
++libkdevkjssupport_la_LIBADD = -lkjsembed $(top_builddir)/lib/libkdevelop.la
+ libkdevkjssupport_la_SOURCES = kjssupport_part.cpp kjsproblems.cpp jscodecompletion.cpp subclassingdlg.cpp subclassingdlgbase.ui
+ 
+ METASOURCES = AUTO
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/lib/debugger/Makefile.am src/kdevelop-3.5.2/languages/lib/debugger/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/lib/debugger/Makefile.am	2007-04-09 18:44:27.000000000 -0500
++++ src/kdevelop-3.5.2/languages/lib/debugger/Makefile.am	2008-05-19 21:33:14.859375000 -0500
+@@ -1,7 +1,8 @@
+ INCLUDES = -I$(top_srcdir)/lib/interfaces $(all_includes)
+ METASOURCES = AUTO
+ lib_LTLIBRARIES = liblang_debugger.la
+-liblang_debugger_la_LDFLAGS = $(all_libraries)
++liblang_debugger_la_LDFLAGS = $(all_libraries) -no-undefined
++liblang_debugger_la_LIBADD = -lktexteditor
+ liblang_debugger_la_SOURCES = kdevdebugger.cpp debugger.cpp
+ langincludedirdir = $(includedir)/kdevelop/languages/debugger
+ langincludedir_HEADERS = debugger.h kdevdebugger.h
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/lib/designer_integration/Makefile.am src/kdevelop-3.5.2/languages/lib/designer_integration/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/lib/designer_integration/Makefile.am	2007-04-09 18:44:27.000000000 -0500
++++ src/kdevelop-3.5.2/languages/lib/designer_integration/Makefile.am	2008-05-19 21:33:14.875000000 -0500
+@@ -2,8 +2,9 @@
+ 	-I$(top_srcdir)/lib/interfaces/extensions -I$(top_srcdir)/lib/interfaces/external -I$(top_srcdir)/lib/util \
+ 	$(all_includes)
+ METASOURCES = AUTO
+-libdesignerintegration_la_LDFLAGS = $(all_libraries)
+ lib_LTLIBRARIES = libdesignerintegration.la
++libdesignerintegration_la_LDFLAGS = $(all_libraries) -no-undefined
++libdesignerintegration_la_LIBADD = $(top_builddir)/lib/libkdevelop.la
+ libdesignerintegration_la_SOURCES = implementationwidgetbase.ui \
+ 	implementationwidget.cpp qtdesignerintegration.cpp
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/lib/interfaces/Makefile.am src/kdevelop-3.5.2/languages/lib/interfaces/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/lib/interfaces/Makefile.am	2007-04-09 18:44:27.000000000 -0500
++++ src/kdevelop-3.5.2/languages/lib/interfaces/Makefile.am	2008-05-19 21:33:14.921875000 -0500
+@@ -2,7 +2,7 @@
+ METASOURCES = AUTO
+ langincludedirdir = $(includedir)/kdevelop/languages/interfaces
+ lib_LTLIBRARIES = liblang_interfaces.la
+-liblang_interfaces_la_LDFLAGS = $(all_libraries)
++liblang_interfaces_la_LDFLAGS = $(all_libraries) -no-undefined
+ liblang_interfaces_la_SOURCES = kdevpcsimporter.cpp
+ liblang_interfaces_la_LIBADD = $(LIB_QT)
+ langincludedir_HEADERS = kdevpcsimporter.h
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/languages/pascal/Makefile.am src/kdevelop-3.5.2/languages/pascal/Makefile.am
+--- origsrc/kdevelop-3.5.2/languages/pascal/Makefile.am	2007-04-09 18:44:26.000000000 -0500
++++ src/kdevelop-3.5.2/languages/pascal/Makefile.am	2008-05-19 21:33:14.937500000 -0500
+@@ -6,7 +6,7 @@
+ SUBDIRS = file_templates app_templates compiler doc
+ 
+ kde_module_LTLIBRARIES = libkdevpascalsupport.la
+-libkdevpascalsupport_la_LDFLAGS = $(LEXLIB) $(all_libraries) $(KDE_PLUGIN)
++libkdevpascalsupport_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
+ libkdevpascalsupport_la_LIBADD = $(top_builddir)/lib/libkdevelop.la $(top_builddir)/lib/antlr/src/libantlr.la $(top_builddir)/lib/catalog/libkdevcatalog.la
+ 
+ libkdevpascalsupport_la_SOURCES = pascalsupport_part.cpp PascalLexer.cpp PascalParser.cpp PascalStoreWalker.cpp backgroundparser.cpp configproblemreporter.ui problemreporter.cpp
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/lib/cppparser/Makefile.am src/kdevelop-3.5.2/lib/cppparser/Makefile.am
+--- origsrc/kdevelop-3.5.2/lib/cppparser/Makefile.am	2007-04-09 18:44:06.000000000 -0500
++++ src/kdevelop-3.5.2/lib/cppparser/Makefile.am	2008-05-19 21:33:14.937500000 -0500
+@@ -1,7 +1,8 @@
+ INCLUDES = -I$(top_srcdir)/lib/interfaces $(all_includes)
+ AM_CXXFLAGS = -DKDEVELOP_BGPARSER
+ lib_LTLIBRARIES = libkdevcppparser.la
+-libkdevcppparser_la_LDFLAGS = $(all_libraries)
++libkdevcppparser_la_LDFLAGS = $(all_libraries) -no-undefined
++libkdevcppparser_la_LIBADD = $(top_builddir)/lib/widgets/libkdevwidgets.la
+ libkdevcppparser_la_SOURCES = ast.cpp cachemanager.cpp driver.cpp errors.cpp \
+ 	lexer.cpp lexercache.cpp lookup.cpp parser.cpp tree_parser.cpp
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/lib/interfaces/external/Makefile.am src/kdevelop-3.5.2/lib/interfaces/external/Makefile.am
+--- origsrc/kdevelop-3.5.2/lib/interfaces/external/Makefile.am	2007-04-09 18:44:07.000000000 -0500
++++ src/kdevelop-3.5.2/lib/interfaces/external/Makefile.am	2008-05-19 21:33:14.968750000 -0500
+@@ -6,7 +6,8 @@
+ kinterfacedesigner_HEADERS = designer.h
+ 
+ lib_LTLIBRARIES =  libkinterfacedesigner.la
+-libkinterfacedesigner_la_LDFLAGS = $(all_libraries)
++libkinterfacedesigner_la_LDFLAGS = $(all_libraries) -no-undefined
++libkinterfacedesigner_la_LIBADD = $(LIB_KPARTS)
+ libkinterfacedesigner_la_SOURCES =  designer.cpp
+ 
+ DOXYGEN_REFERENCES = dcop interfaces kdecore kdefx kdeui khtml kmdi kio kjs kparts kutils
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/lib/interfaces/extras/Makefile.am src/kdevelop-3.5.2/lib/interfaces/extras/Makefile.am
+--- origsrc/kdevelop-3.5.2/lib/interfaces/extras/Makefile.am	2007-04-09 18:44:07.000000000 -0500
++++ src/kdevelop-3.5.2/lib/interfaces/extras/Makefile.am	2008-05-19 21:33:14.984375000 -0500
+@@ -1,8 +1,9 @@
+ INCLUDES = -I$(top_srcdir)/lib/interfaces/external -I$(top_srcdir)/lib/util \
+ 	$(all_includes)
+ METASOURCES = AUTO
+-libkdevextras_la_LDFLAGS = $(all_libraries)
+ lib_LTLIBRARIES = libkdevextras.la
++libkdevextras_la_LDFLAGS = $(all_libraries) -no-undefined
++libkdevextras_la_LIBADD = $(LIB_QT)
+ kdevelopincludedir = $(includedir)/kdevelop/interfaces/extras
+ servicetypedir = $(kde_servicetypesdir)
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/parts/documentation/interfaces/Makefile.am src/kdevelop-3.5.2/parts/documentation/interfaces/Makefile.am
+--- origsrc/kdevelop-3.5.2/parts/documentation/interfaces/Makefile.am	2007-04-09 18:43:59.000000000 -0500
++++ src/kdevelop-3.5.2/parts/documentation/interfaces/Makefile.am	2008-05-19 21:33:15.000000000 -0500
+@@ -3,7 +3,8 @@
+ METASOURCES = AUTO
+ partincludedirdir = $(includedir)/kdevelop/parts/documentation
+ lib_LTLIBRARIES = libdocumentation_interfaces.la
+-libdocumentation_interfaces_la_LDFLAGS = $(all_libraries)
++libdocumentation_interfaces_la_LDFLAGS = $(all_libraries) -no-undefined
++libdocumentation_interfaces_la_LIBADD = $(LIB_KIO)
+ libdocumentation_interfaces_la_SOURCES = kdevdocumentationplugin.cpp
+ partincludedir_HEADERS = kdevdocumentationplugin.h
+ servicetypedir = $(kde_servicetypesdir)
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/parts/documentation/plugins/djvu/Makefile.am src/kdevelop-3.5.2/parts/documentation/plugins/djvu/Makefile.am
+--- origsrc/kdevelop-3.5.2/parts/documentation/plugins/djvu/Makefile.am	2007-04-09 18:43:59.000000000 -0500
++++ src/kdevelop-3.5.2/parts/documentation/plugins/djvu/Makefile.am	2008-05-19 21:33:15.031250000 -0500
+@@ -1,7 +1,7 @@
+ INCLUDES = -I$(top_srcdir)/lib/interfaces $(all_includes)
+ METASOURCES = AUTO
+ kde_module_LTLIBRARIES = libdocdjvuplugin.la
+-libdocdjvuplugin_la_LDFLAGS = $(all_libraries)
++libdocdjvuplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
+ libdocdjvuplugin_la_LIBADD = $(top_builddir)/lib/libkdevelop.la
+ noinst_HEADERS = docdjvuplugin.h
+ libdocdjvuplugin_la_SOURCES = docdjvuplugin.cpp
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/parts/documentation/plugins/pdf/Makefile.am src/kdevelop-3.5.2/parts/documentation/plugins/pdf/Makefile.am
+--- origsrc/kdevelop-3.5.2/parts/documentation/plugins/pdf/Makefile.am	2007-04-09 18:43:59.000000000 -0500
++++ src/kdevelop-3.5.2/parts/documentation/plugins/pdf/Makefile.am	2008-05-19 21:33:15.031250000 -0500
+@@ -1,7 +1,7 @@
+ INCLUDES = -I$(top_srcdir)/lib/interfaces $(all_includes)
+ METASOURCES = AUTO
+ kde_module_LTLIBRARIES = libdocpdfplugin.la
+-libdocpdfplugin_la_LDFLAGS = $(all_libraries)
++libdocpdfplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
+ libdocpdfplugin_la_LIBADD = $(top_builddir)/lib/libkdevelop.la
+ noinst_HEADERS = docpdfplugin.h
+ libdocpdfplugin_la_SOURCES = docpdfplugin.cpp
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/src/Makefile.am src/kdevelop-3.5.2/src/Makefile.am
+--- origsrc/kdevelop-3.5.2/src/Makefile.am	2007-04-09 18:43:54.000000000 -0500
++++ src/kdevelop-3.5.2/src/Makefile.am	2008-05-19 21:33:15.046875000 -0500
+@@ -7,7 +7,7 @@
+ KDE_OPTIONS=nofinal
+ 
+ lib_LTLIBRARIES = libkdevshell.la
+-libkdevshell_la_LDFLAGS = $(all_libraries)
++libkdevshell_la_LDFLAGS = $(all_libraries) -no-undefined
+ libkdevshell_la_LIBADD = \
+ 	$(top_builddir)/src/profileengine/lib/libprofileengine.la $(top_builddir)/lib/libkdevelop.la \
+ 	$(top_builddir)/lib/widgets/libkdevwidgets.la $(top_builddir)/lib/interfaces/extras/libkdevextras.la \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/src/newui/Makefile.am src/kdevelop-3.5.2/src/newui/Makefile.am
+--- origsrc/kdevelop-3.5.2/src/newui/Makefile.am	2007-04-09 18:43:54.000000000 -0500
++++ src/kdevelop-3.5.2/src/newui/Makefile.am	2008-05-19 21:33:15.062500000 -0500
+@@ -6,7 +6,7 @@
+ 
+ 
+ lib_LTLIBRARIES = libd.la
+-libd_la_LDFLAGS = $(all_libraries)
++libd_la_LDFLAGS = $(all_libraries) -no-undefined
+ 
+ noinst_HEADERS = dmainwindow.h ddockwindow.h buttonbar.h  button.h  comdefs.h docksplitter.h dtabwidget.h
+ libd_la_SOURCES = dmainwindow.cpp buttonbar.cpp \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/src/profileengine/lib/Makefile.am src/kdevelop-3.5.2/src/profileengine/lib/Makefile.am
+--- origsrc/kdevelop-3.5.2/src/profileengine/lib/Makefile.am	2007-04-09 18:43:53.000000000 -0500
++++ src/kdevelop-3.5.2/src/profileengine/lib/Makefile.am	2008-05-19 21:33:15.093750000 -0500
+@@ -3,7 +3,8 @@
+ 	-I$(top_srcdir)/lib/structure $(all_includes)
+ METASOURCES = AUTO
+ lib_LTLIBRARIES = libprofileengine.la
+-libprofileengine_la_LDFLAGS = $(all_libraries)
++libprofileengine_la_LDFLAGS = $(all_libraries) -no-undefined
++libprofileengine_la_LIBADD = $(LIB_KIO)
+ libprofileengine_la_SOURCES = profileengine.cpp profile.cpp
+ 
+ profileincludedir = $(includedir)/kdevelop/shell/profileengine
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/vcs/clearcase/clearcasemanipulator.cpp src/kdevelop-3.5.2/vcs/clearcase/clearcasemanipulator.cpp
+--- origsrc/kdevelop-3.5.2/vcs/clearcase/clearcasemanipulator.cpp	2008-04-01 10:09:46.000000000 -0500
++++ src/kdevelop-3.5.2/vcs/clearcase/clearcasemanipulator.cpp	2008-05-19 21:33:15.109375000 -0500
+@@ -9,6 +9,10 @@
+ // Copyright: See COPYING file that comes with this distribution
+ //
+ //
++#if defined(Q_OS_CYGWIN) || defined(__CYGWIN__)
++#define _GNU_SOURCE
++#endif
++
+ #include "clearcasemanipulator.h"
+ 
+ #include <kprocess.h>
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/vcs/clearcase/integrator/Makefile.am src/kdevelop-3.5.2/vcs/clearcase/integrator/Makefile.am
+--- origsrc/kdevelop-3.5.2/vcs/clearcase/integrator/Makefile.am	2007-04-09 18:44:13.000000000 -0500
++++ src/kdevelop-3.5.2/vcs/clearcase/integrator/Makefile.am	2008-05-19 21:33:15.125000000 -0500
+@@ -3,7 +3,7 @@
+ 	$(all_includes)
+ METASOURCES = AUTO
+ kde_module_LTLIBRARIES = libclearcaseintegrator.la
+-libclearcaseintegrator_la_LDFLAGS = -avoid-version -no-undefined $(all_libraries)
++libclearcaseintegrator_la_LDFLAGS = $(KDE_PLUGIN) $(all_libraries)
+ libclearcaseintegrator_la_LIBADD =\
+ 	$(top_builddir)/lib/interfaces/extras/libkdevextras.la\
+ 	$(top_builddir)/lib/libkdevelop.la
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/vcs/cvsservice/integrator/Makefile.am src/kdevelop-3.5.2/vcs/cvsservice/integrator/Makefile.am
+--- origsrc/kdevelop-3.5.2/vcs/cvsservice/integrator/Makefile.am	2007-04-09 18:44:13.000000000 -0500
++++ src/kdevelop-3.5.2/vcs/cvsservice/integrator/Makefile.am	2008-05-19 21:33:15.140625000 -0500
+@@ -3,7 +3,7 @@
+ 	$(all_includes)
+ METASOURCES = AUTO
+ kde_module_LTLIBRARIES = libcvsserviceintegrator.la
+-libcvsserviceintegrator_la_LDFLAGS = -avoid-version -no-undefined $(all_libraries)
++libcvsserviceintegrator_la_LDFLAGS = $(KDE_PLUGIN) $(all_libraries)
+ libcvsserviceintegrator_la_LIBADD = \
+ 	$(top_builddir)/lib/interfaces/extras/libkdevextras.la $(top_builddir)/lib/libkdevelop.la -lcvsservice
+ noinst_HEADERS = cvsserviceintegrator.h integratordlg.h
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/vcs/perforce/integrator/Makefile.am src/kdevelop-3.5.2/vcs/perforce/integrator/Makefile.am
+--- origsrc/kdevelop-3.5.2/vcs/perforce/integrator/Makefile.am	2007-04-09 18:44:13.000000000 -0500
++++ src/kdevelop-3.5.2/vcs/perforce/integrator/Makefile.am	2008-05-19 21:33:15.187500000 -0500
+@@ -3,7 +3,7 @@
+ 	$(all_includes)
+ METASOURCES = AUTO
+ kde_module_LTLIBRARIES = libperforceintegrator.la
+-libperforceintegrator_la_LDFLAGS = -avoid-version -no-undefined $(all_libraries)
++libperforceintegrator_la_LDFLAGS = $(KDE_PLUGIN) $(all_libraries)
+ libperforceintegrator_la_LIBADD =\
+ 	$(top_builddir)/lib/interfaces/extras/libkdevextras.la\
+ 	$(top_builddir)/lib/libkdevelop.la
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4~' -x aclocal.m4t -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x '*config.h.in' -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x aclocal.m4 -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kdevelop-3.5.2/vcs/subversion/integrator/Makefile.am src/kdevelop-3.5.2/vcs/subversion/integrator/Makefile.am
+--- origsrc/kdevelop-3.5.2/vcs/subversion/integrator/Makefile.am	2007-04-09 18:44:13.000000000 -0500
++++ src/kdevelop-3.5.2/vcs/subversion/integrator/Makefile.am	2008-05-19 21:33:15.187500000 -0500
+@@ -4,7 +4,7 @@
+ METASOURCES = AUTO
+ 
+ kde_module_LTLIBRARIES = libsubversionintegrator.la
+-libsubversionintegrator_la_LDFLAGS = -avoid-version -no-undefined $(all_libraries)
++libsubversionintegrator_la_LDFLAGS = $(KDE_PLUGIN) $(all_libraries)
+ libsubversionintegrator_la_LIBADD =\
+ 	$(top_builddir)/lib/interfaces/extras/libkdevextras.la\
+ 	$(top_builddir)/lib/libkdevelop.la

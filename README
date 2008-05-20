@@ -7,7 +7,7 @@ Runtime requirements:
   cygwin-1.5.25-11
   cervisia-3.5.9-1
   kdelibs4-3.5.9-1
-  libapr1-1.2.11-1
+  libapr1-1.2.12-1
   libdb4.6-4.6.21.1-1
   qt3-3.3.8-4
   subversion-1.4.5-1
@@ -17,7 +17,7 @@ Build requirements:
   autoconf2.5-2.61-1
   automake1.10-1.10.1-1
   binutils-20060817-1
-  cygport-0.3.9-1
+  cygport-0.3.10-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
@@ -30,20 +30,20 @@ Canonical website:
   http://www.kdevelop.org/
 
 Canonical download:
-  ftp://ftp.kde.org/pub/kde/stable/3.5.8/src/
+  ftp://ftp.kde.org/pub/kde/stable/apps/KDE3.x/ide/
 
 -------------------------------------------
 
 Build instructions:
-  unpack kdevelop-3.5.1-X-src.tar.bz2
+  unpack kdevelop-3.5.2-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./kdevelop-3.5.1-X.cygport all
+  cygport ./kdevelop-3.5.2-X.cygport all
 
 This will create:
-  /usr/src/kdevelop-3.5.1-X-src.tar.bz2
-  /usr/src/kdevelop-3.5.1-X.tar.bz2
+  /usr/src/kdevelop-3.5.2-X-src.tar.bz2
+  /usr/src/kdevelop-3.5.2-X.tar.bz2
 
 -------------------------------------------
 
@@ -1414,14 +1414,14 @@ Files included in the binary package:
   /usr/share/doc/HTML/en/kdevelop/tutorial-new-project.png
   /usr/share/doc/HTML/en/kdevelop/unixdev.docbook
   /usr/share/doc/HTML/en/kdevelop/wrong-project-location.png
-  /usr/share/doc/kdevelop-3.5.1/AUTHORS
-  /usr/share/doc/kdevelop-3.5.1/COPYING
-  /usr/share/doc/kdevelop-3.5.1/COPYING.LIB
-  /usr/share/doc/kdevelop-3.5.1/ChangeLog
-  /usr/share/doc/kdevelop-3.5.1/HACKING
-  /usr/share/doc/kdevelop-3.5.1/INSTALL
-  /usr/share/doc/kdevelop-3.5.1/README
-  /usr/share/doc/kdevelop-3.5.1/TODO
+  /usr/share/doc/kdevelop-3.5.2/AUTHORS
+  /usr/share/doc/kdevelop-3.5.2/COPYING
+  /usr/share/doc/kdevelop-3.5.2/COPYING.LIB
+  /usr/share/doc/kdevelop-3.5.2/ChangeLog
+  /usr/share/doc/kdevelop-3.5.2/HACKING
+  /usr/share/doc/kdevelop-3.5.2/INSTALL
+  /usr/share/doc/kdevelop-3.5.2/README
+  /usr/share/doc/kdevelop-3.5.2/TODO
   /usr/share/icons/hicolor/16x16/actions/breakpoint_add.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete_all.png
@@ -1556,6 +1556,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 3.5.2-1 -----
+Version bump.
 
 ----- version 3.5.1-1 -----
 Version bump for KDE 3.5.9.
