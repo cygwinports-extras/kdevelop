@@ -1,0 +1,4 @@
+inherit kde4
+
+DESCRIPTION="KDE Integrated Development Environment"
+HOMEPAGE="http://www.kdevelop.org/"
