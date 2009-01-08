@@ -4,46 +4,53 @@ KDevelop is an Integrated Development Environment to be used for a wide
 variety of programming tasks.
 
 Runtime requirements:
-  cygwin-1.5.25-11
-  cervisia-3.5.9-1
-  kdelibs4-3.5.9-1
-  libapr1-1.2.12-1
-  libdb4.6-4.6.21.1-1
-  qt3-3.3.8-4
-  subversion-1.4.5-1
+  cygwin-1.5.25-15
+  kdelibs4-3.5.10-1
+  libapr1-1.3.3-1
+  libcvsservice0-3.5.10-1
+  libdb4.6-4.6.21.3-1
+  libqt3-3.3.8b-1
+  subversion-1.5.4-1
+  ctags
+  doxygen
+  graphviz
+  kdbg
+  kde3-kio_svn
+  kompare
+  konsole
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.61-1
-  automake1.10-1.10.1-1
-  binutils-20060817-1
-  cygport-0.3.10-1
+  autoconf2.5-2.63-1
+  automake1.10-1.10.1-2
+  binutils-20080624-2
+  cygport-0.4.4-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
-  libtool-2.2.2-2
+  libtool-2.2.6a-1
   make-3.81-1
-  perl-5.10.0-3
+  perl-5.10.0-5
   sed-4.1.5-2
 
 Canonical website:
   http://www.kdevelop.org/
 
 Canonical download:
-  ftp://ftp.kde.org/pub/kde/stable/apps/KDE3.x/ide/
+  ftp://ftp.kde.org/pub/kde/stable/3.5.10/src/
 
 -------------------------------------------
 
 Build instructions:
-  unpack kdevelop-3.5.2-X-src.tar.bz2
+  unpack kdevelop-3.5.4-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./kdevelop-3.5.2-X.cygport all
+  cygport ./kdevelop-3.5.4-X.cygport all
 
 This will create:
-  /usr/src/kdevelop-3.5.2-X-src.tar.bz2
-  /usr/src/kdevelop-3.5.2-X.tar.bz2
+  /usr/src/kdevelop-3.5.4-X-src.tar.bz2
+  /usr/src/kdevelop-3.5.4-X.tar.bz2
 
 -------------------------------------------
 
@@ -1280,14 +1287,6 @@ Files included in the binary package:
   /usr/share/doc/HTML/en/kde_app_devel/index.cache.bz2
   /usr/share/doc/HTML/en/kde_app_devel/index.docbook
   /usr/share/doc/HTML/en/kde_app_devel/kscribblefiles.png
-  /usr/share/doc/HTML/en/kdevelop-apidocs/common
-  /usr/share/doc/HTML/en/kdevelop-apidocs/doxygen.css
-  /usr/share/doc/HTML/en/kdevelop-apidocs/doxygen.png
-  /usr/share/doc/HTML/en/kdevelop-apidocs/index.html
-  /usr/share/doc/HTML/en/kdevelop-apidocs/tab_b.gif
-  /usr/share/doc/HTML/en/kdevelop-apidocs/tab_l.gif
-  /usr/share/doc/HTML/en/kdevelop-apidocs/tab_r.gif
-  /usr/share/doc/HTML/en/kdevelop-apidocs/tabs.css
   /usr/share/doc/HTML/en/kdevelop/SF-general.png
   /usr/share/doc/HTML/en/kdevelop/SF-indent.png
   /usr/share/doc/HTML/en/kdevelop/SF-other.png
@@ -1414,14 +1413,14 @@ Files included in the binary package:
   /usr/share/doc/HTML/en/kdevelop/tutorial-new-project.png
   /usr/share/doc/HTML/en/kdevelop/unixdev.docbook
   /usr/share/doc/HTML/en/kdevelop/wrong-project-location.png
-  /usr/share/doc/kdevelop-3.5.2/AUTHORS
-  /usr/share/doc/kdevelop-3.5.2/COPYING
-  /usr/share/doc/kdevelop-3.5.2/COPYING.LIB
-  /usr/share/doc/kdevelop-3.5.2/ChangeLog
-  /usr/share/doc/kdevelop-3.5.2/HACKING
-  /usr/share/doc/kdevelop-3.5.2/INSTALL
-  /usr/share/doc/kdevelop-3.5.2/README
-  /usr/share/doc/kdevelop-3.5.2/TODO
+  /usr/share/doc/kdevelop-3.5.4/AUTHORS
+  /usr/share/doc/kdevelop-3.5.4/COPYING
+  /usr/share/doc/kdevelop-3.5.4/COPYING.LIB
+  /usr/share/doc/kdevelop-3.5.4/ChangeLog
+  /usr/share/doc/kdevelop-3.5.4/HACKING
+  /usr/share/doc/kdevelop-3.5.4/INSTALL
+  /usr/share/doc/kdevelop-3.5.4/README
+  /usr/share/doc/kdevelop-3.5.4/TODO
   /usr/share/icons/hicolor/16x16/actions/breakpoint_add.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete.png
   /usr/share/icons/hicolor/16x16/actions/breakpoint_delete_all.png
@@ -1556,6 +1555,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 3.5.4-1 -----
+Version bump for KDE 3.5.10.
 
 ----- version 3.5.2-1 -----
 Version bump.

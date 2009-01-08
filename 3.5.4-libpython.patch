@@ -1,0 +1,18 @@
+--- origsrc/kdevelop-3.5.4/admin/acinclude.m4.in	2008-11-01 11:16:45.000000000 -0500
++++ src/kdevelop-3.5.4/admin/acinclude.m4.in	2009-01-07 23:58:23.939000000 -0600
+@@ -4584,11 +4584,11 @@ PYTHONINC=-I$python_incdir
+ python_libdirs="$ac_python_dir/lib$kdelibsuff /usr/lib$kdelibsuff /usr/local /usr/lib$kdelibsuff $kde_extra_libs"
+ AC_FIND_FILE(libpython$version.so, $python_libdirs, python_libdir)
+ if test ! -r $python_libdir/libpython$version.so; then
+-  AC_FIND_FILE(libpython$version.a, $python_libdirs, python_libdir)
+-  if test ! -r $python_libdir/libpython$version.a; then
+-    AC_FIND_FILE(python$version/config/libpython$version.a, $python_libdirs, python_libdir)
++  AC_FIND_FILE(libpython$version.dll.a, $python_libdirs, python_libdir)
++  if test ! -r $python_libdir/libpython$version.dll.a; then
++    AC_FIND_FILE(python$version/config/libpython$version.dll.a, $python_libdirs, python_libdir)
+     python_libdir=$python_libdir/python$version/config
+-    if test ! -r $python_libdir/libpython$version.a; then
++    if test ! -r $python_libdir/libpython$version.dll.a; then
+       python_libdir=no
+     fi
+   fi
