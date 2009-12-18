@@ -1,0 +1,10 @@
+inherit kde4
+
+DESCRIPTION="KDE Integrated Development Environment"
+HOMEPAGE="http://www.kdevelop.org/"
+
+PATCH_URI="3.9.95-debuggers-optional.patch"
+
+# debuggers/gdb: requires libprocessui from kdebase-workspace
+# debuggers/valgrind: linux only
+CYGCMAKE_ARGS="-DBUILD_debuggers=NO"

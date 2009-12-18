@@ -1,5 +1,5 @@
 category: KDE Devel
-requires: ctags doxygen graphviz kdbg kdelibs4 kde3-kio_svn kompare konsole libapr1 libcvsservice0 libdb4.6 libqt3 libqt3-devel make subversion
+requires: libgcc1 libkdecore5 libkdevplatform1 libQtCore4 libQtGui4 libQtHelp4 libQtNetwork4 libQtScript4 libQtWebKit4 libstdc++6
 sdesc: "KDE Integrated Development Environment"
 ldesc: "KDevelop is an Integrated Development Environment to be used for 
 a wide variety of programming tasks."
