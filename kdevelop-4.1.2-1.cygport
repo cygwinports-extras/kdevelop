@@ -3,5 +3,4 @@ inherit kde4
 DESCRIPTION="KDE Integrated Development Environment"
 HOMEPAGE="http://www.kdevelop.org/"
 
-# debuggers/gdb requires libprocessui from kdebase-workspace
-PATCH_URI="3.9.97-disable-debuggers.patch"
+PATCH_URI="4.1.2-setenv.patch"
