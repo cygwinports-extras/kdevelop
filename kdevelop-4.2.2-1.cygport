@@ -2,5 +2,3 @@ inherit kde4
 
 DESCRIPTION="KDE Integrated Development Environment"
 HOMEPAGE="http://www.kdevelop.org/"
-
-PATCH_URI="4.1.2-setenv.patch"
