@@ -1,5 +1,0 @@
-category: KDE Devel
-requires: gdb kdevplatform libgcc1 libkdecore5 libkdevplatform5 libkworkspace4 libQtCore4 libQtDBus4 libQtGui4 libQtHelp4 libQtNetwork4 libQtScript4 libQtWebKit4 libstdc++6 okteta
-sdesc: "KDE Integrated Development Environment"
-ldesc: "KDevelop is an Integrated Development Environment to be used for 
-a wide variety of programming tasks."
