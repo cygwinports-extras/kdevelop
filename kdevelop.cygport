@@ -1,7 +1,7 @@
 inherit kde4
 
 NAME="kdevelop"
-VERSION=4.5.1
+VERSION=4.6.0
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="KDE Integrated Development Environment"
@@ -9,4 +9,4 @@ DESCRIPTION="KDevelop is an Integrated Development Environment to be used for
 a wide variety of programming tasks."
 REQUIRES="gdb kdevplatform okteta"
 HOMEPAGE="http://www.kdevelop.org/"
-SRC_URI="mirror://kde/stable/kdevelop/${VERSION}/src/kdevelop-${VERSION}.tar.bz2"
+SRC_URI="mirror://kde/stable/kdevelop/${VERSION}/src/kdevelop-${VERSION}.tar.xz"
